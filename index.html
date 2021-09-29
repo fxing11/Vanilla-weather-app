@@ -11,6 +11,7 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -33,10 +34,10 @@
               </div>
             </div>
           </form>
-          <h1>Zürich</h1>
+          <h1 id="city"></h1>
           <ul>
             <li>Monday 10:00</li>
-            <li>clear</li>
+            <li id="description"></li>
           </ul>
           <div class="row">
             <div class="col-6">
@@ -44,8 +45,9 @@
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
                   alt="cloudy"
+                  class="float-left"
                 />
-                <span class="weather-temperature">17</span>
+                <span class="weather-temperature" id="temperature">17</span>
                 <span class="weather-temperature-units"
                   >°C |<a class="unit-change" href="#"> °F</a></span
                 >
