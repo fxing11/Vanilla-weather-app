@@ -18,11 +18,11 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  return `${days[day]} ${hours} : ${minutes}`;
+  return `${days[day]} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
+  //console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -44,8 +44,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let city_name = "Zurich";
-let apiKey = "48477574ab33f03aeefc4b00219c6195";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = "48477574ab33f03aeefc4b00219c6195";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function submit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Zürich");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", submit);
