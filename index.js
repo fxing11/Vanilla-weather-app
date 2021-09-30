@@ -31,7 +31,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -56,7 +58,27 @@ function submit(event) {
   search(cityInputElement.value);
 }
 
-search("Zürich");
+let celsiusTemperature = null;
+
+function showFahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperature.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showCelsius(event) {
+  event.preventDefault();
+  temperature.innerHTML = Math.round(celsiusTemperature);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
+
+let fahrenheitConvert = document.querySelector("#fahrenheit");
+fahrenheitConvert.addEventListener("click", showFahrenheit);
+
+let celsiusConvert = document.querySelector("#celsius");
+celsiusConvert.addEventListener("click", showCelsius);
+
+search("Zürich");
