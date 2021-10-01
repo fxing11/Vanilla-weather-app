@@ -45,3 +45,18 @@ h1 {
   text-decoration: none;
   color: rgb(33, 33, 33);
 }
+.weather-forcast {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.weather-forcast-date {
+  font-size: 16px;
+  color: rgb(135, 135, 135);
+}
+.weather-forcast-temperature {
+  font-size: 13px;
+}
+.weather-forcast-temperature-min {
+  opacity: 0.6;
+}
