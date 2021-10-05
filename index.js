@@ -112,27 +112,7 @@ function submit(event) {
   search(cityInputElement.value);
 }
 
-let celsiusTemperature = null;
-
-function showFahrenheit(event) {
-  event.preventDefault();
-  let temperature = document.querySelector("#temperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperature.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function showCelsius(event) {
-  event.preventDefault();
-  temperature.innerHTML = Math.round(celsiusTemperature);
-}
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", submit);
-
-let fahrenheitConvert = document.querySelector("#fahrenheit");
-fahrenheitConvert.addEventListener("click", showFahrenheit);
-
-let celsiusConvert = document.querySelector("#celsius");
-celsiusConvert.addEventListener("click", showCelsius);
 
 search("Zürich");
